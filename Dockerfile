@@ -1,7 +1,6 @@
 FROM pypy:latest
-COPY requirements.txt /app/requirements.txt
 WORKDIR /app
+COPY requirements.txt /app/requirements.txt
 RUN pip install -r requirements.txt
-RUN python -m spacy download en_core_web_md
 COPY . /app
-CMD python garden.py
+CMD python watch_next.py
